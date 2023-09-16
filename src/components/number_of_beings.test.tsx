@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import SpeciesName from './species_name';
+import NumberOfBeings from './number_of_beings';
 import user from '@testing-library/user-event';
 
-test('renders SpeciesName element', () => {
+test('renders NumberOfBeings element', () => {
 	
 	const props ={
-		"speciesName":"Humans",
-		onChangeSpeciesName:jest.fn(),
+		"numberOfBeings":"4",
+		onChangeNumberOfBeings:jest.fn(),
 	};
 	
-	render(<SpeciesName {...props} />);
+	render(<NumberOfBeings {...props} />);
 
 	const sn = screen.getByRole("textbox")
 	expect(sn).toBeInTheDocument()
@@ -17,35 +17,35 @@ test('renders SpeciesName element', () => {
 });
 
 
-test('default SpeciesName set correctly', () => {
+test('default numberOfBeings set correctly', () => {
 	
 	const props ={
-		"speciesName":"Cat Women",
-		onChangeSpeciesName:jest.fn(),
+		"numberOfBeings":"4",
+		onChangeNumberOfBeings:jest.fn(),
 	};
 	
-	render(<SpeciesName {...props} />);
+	render(<NumberOfBeings {...props} />);
 
 	const st = screen.getByRole('textbox');
-	expect(st).toHaveValue("Cat Women")
+	expect(st).toHaveValue("4")
 	
 });
 
 
-test('SpeciesName change handler called', async () =>  {
+test('numberOfBeings change handler called', async () =>  {
 	
 	const mockChange = jest.fn()
 	
 	const props ={
-		"speciesName":"Cat Women",
-		onChangeSpeciesName:mockChange,
+		"numberOfBeings":"4",
+		onChangeNumberOfBeings:mockChange,
 	};
 	
-	render(<SpeciesName {...props} />);
+	render(<NumberOfBeings {...props} />);
 	
-	await user.type(screen.getByRole('textbox'), ' of Uranus');
+	await user.type(screen.getByRole('textbox'), '88');
 
 	const st = screen.getByRole('textbox');
-	expect(mockChange).toHaveBeenCalledTimes(10)
+	expect(mockChange).toHaveBeenCalledTimes(2)
 	
 });
