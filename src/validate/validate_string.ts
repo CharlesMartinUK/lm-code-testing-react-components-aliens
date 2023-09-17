@@ -3,5 +3,5 @@ export function containsNumbers(s:string){
 }
 
 export function containsSpecialCharacters(s:string){
-	return /[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/.test(s)
+	return /[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~]/.test(s)
 }	
