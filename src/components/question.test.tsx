@@ -8,6 +8,8 @@ test('renders question element', () => {
 	const props ={
 		"question":"4",
 		onChangeQuestion:jest.fn(),
+		validate:jest.fn(),
+		value:"4"
 	};
 	
 	render(<Question {...props} />);
@@ -23,6 +25,8 @@ test('default question set correctly', () => {
 	const props ={
 		"question":"4",
 		onChangeQuestion:jest.fn(),
+		validate:jest.fn(),
+		value:"4"
 	};
 	
 	render(<Question {...props} />);
@@ -39,7 +43,9 @@ test('question change handler called', async ()  =>  {
 	
 	const props ={
 		"question":"4",
-		onChangeQuestion: mockHandler ,
+		onChangeQuestion: mockHandler,
+		validate:jest.fn(),
+		value:"4"
 	};
 	
 	render(<Question {...props} />);
