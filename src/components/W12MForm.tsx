@@ -10,7 +10,7 @@ import   Reason   from './reason'
 
 
 import validateSpeciesName from '../validate/validate_species_name'
-
+import validatePlanetName from '../validate/validate_planet_name'
 const W12MForm = () => {
 	
 	const [speciesName, setSpeciesName] = useState('humans');
@@ -41,7 +41,7 @@ const W12MForm = () => {
 			<SpeciesName speciesName={speciesName} onChangeSpeciesName={(value) => setSpeciesName(value)}  validate={(value) => validateSpeciesName(value)} value={speciesName} />
 			}
 			{
-			<PlanetName planetName={planetName} onChangePlanetName={(value) => setPlanetName(value)} />
+			<PlanetName planetName={planetName} onChangePlanetName={(value) => setPlanetName(value)} validate={(value) => validatePlanetName(value)} value={planetName}/>
 			
 			}
 			{

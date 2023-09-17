@@ -7,6 +7,8 @@ test('renders PlanetName element', () => {
 	const props ={
 		"planetName":"Donutopia",
 		onChangePlanetName:jest.fn(),
+		validate:jest.fn(),
+		value:"Donutopia"
 	};
 	
 	render(<PlanetName {...props} />);
@@ -22,6 +24,8 @@ test('default PlanetName set correctly', () => {
 	const props ={
 		"planetName":"Donutopia",
 		onChangePlanetName:jest.fn(),
+		validate:jest.fn(),
+		value:"Donutopia"
 	};
 	
 	render(<PlanetName {...props} />);
@@ -39,6 +43,8 @@ test('PlanetName change handler called', async () =>  {
 	const props ={
 		"planetName":"Donutopia",
 		onChangePlanetName:mockChange,
+		validate:jest.fn(),
+		value:"Donutopia"
 	};
 	
 	render(<PlanetName {...props} />);
