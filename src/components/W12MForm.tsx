@@ -13,6 +13,7 @@ import validateSpeciesName from '../validate/validate_species_name'
 import validatePlanetName from '../validate/validate_planet_name'
 import validateNumberOfBeings from '../validate/validate_number_of_beings'
 import validateQuestion from '../validate/validate_question'
+import validateReason from '../validate/validate_reason'
 
 const W12MForm = () => {
 	
@@ -57,7 +58,8 @@ const W12MForm = () => {
 			}
 			
 			{
-			<Reason reason={reason} onChangeReason={(value) => setReason(value)} />
+			<Reason reason={reason} onChangeReason={(value) => setReason(value)}validate={(value) => validateReason(value)} value={reason} 
+			/>
 			
 			}
 		

@@ -7,6 +7,8 @@ test('renders reason element', () => {
 	const props ={
 		"reason":"cats rules",
 		onChangeReason:jest.fn(),
+		validate:jest.fn(),
+		value:"cats rules"
 	};
 	
 	render(<Reason {...props} />);
@@ -22,6 +24,8 @@ test('default reason set correctly', () => {
 	const props ={
 		"reason":"cats rules",
 		onChangeReason:jest.fn(),
+		validate:jest.fn(),
+		value:"cats rules"
 	};
 	
 	render(<Reason {...props} />);
@@ -39,6 +43,8 @@ test('reason change handler called', async () =>  {
 	const props ={
 		"reason":"cats rules",
 		onChangeReason:mockChange,
+		validate:jest.fn(),
+		value:"cats rules"
 	};
 	
 	render(<Reason {...props} />);
