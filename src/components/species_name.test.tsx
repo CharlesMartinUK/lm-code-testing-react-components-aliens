@@ -55,3 +55,49 @@ test('SpeciesName change handler called', async () =>  {
 	expect(mockChange).toHaveBeenCalledTimes(10)
 	
 });
+
+test('SpeciesName too short validation correctly', () => {
+	
+	const mockValidate = jest.fn()
+	
+	const props ={
+		"speciesName":"Cat Women",
+		onChangeSpeciesName:jest.fn(),
+		validate:mockValidate,
+		value:"Cat Women"
+	};
+	
+	mockValidate.mockReturnValue(["Species name too short"])
+	
+	render(<SpeciesName {...props} />);
+	
+	const t = screen.getByText('Species name too short') 
+	
+	//console.log(t)  
+	expect(t).toBeInTheDocument()
+	
+})
+
+
+test('SpeciesName no problem validation correctly', () => {
+	
+	const mockValidate = jest.fn()
+	
+	const props ={
+		"speciesName":"Cat Women",
+		onChangeSpeciesName:jest.fn(),
+		validate:mockValidate,
+		value:"Cat Women"
+	};
+	
+	mockValidate.mockReturnValue([])
+	
+	const {container} = render(<SpeciesName {...props} />);
+	
+	const t = container.getElementsByClassName('error') 
+	
+	//console.log(t)  
+	expect(t).toHaveLength(0);
+	
+})
+
