@@ -7,7 +7,7 @@ const ErrorMessages : React.FC<ErrorMessagesProp> = (props) => {
 
 	//console.log('errors')
 	// need this other because get sent a lot of undefined
-	if(props.messages == undefined) return <> </>
+	if(props.messages === undefined) return <> </>
 	
     return(
 		<> 
