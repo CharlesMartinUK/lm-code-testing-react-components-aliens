@@ -71,5 +71,55 @@ test('question change handler called', async ()  =>  {
 	  */
      
 
-	
 });
+
+test('question validate errors correctly',() => {
+	
+	const mockValidate = jest.fn()
+	
+	const props ={
+		"question":"4",
+		onChangeQuestion: jest.fn(),
+		validate:mockValidate,
+		value:"4"
+	};
+	
+	
+	mockValidate.mockReturnValue(["Invalid answer"])
+	
+	render(<Question {...props} />);
+	
+	const t = screen.getByText('Invalid answer') 
+	
+	//console.log(t)  
+	expect(t).toBeInTheDocument()
+	
+})
+
+
+	
+test('question validate no errors correctly',() => {
+	
+	const mockValidate = jest.fn()
+	
+	const props ={
+		"question":"4",
+		onChangeQuestion: jest.fn(),
+		validate:mockValidate,
+		value:"4"
+	};
+	
+	
+	mockValidate.mockReturnValue([])
+	
+	const {container}  = render(<Question {...props} />);
+	
+	const t = container.getElementsByClassName('error') 
+	
+	//console.log(t)  
+	expect(t).toHaveLength(0);
+	
+})
+	
+	
+	
