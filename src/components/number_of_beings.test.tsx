@@ -7,6 +7,8 @@ test('renders NumberOfBeings element', () => {
 	const props ={
 		"numberOfBeings":"4",
 		onChangeNumberOfBeings:jest.fn(),
+		validate:jest.fn(),
+		value:"4"
 	};
 	
 	render(<NumberOfBeings {...props} />);
@@ -22,6 +24,8 @@ test('default numberOfBeings set correctly', () => {
 	const props ={
 		"numberOfBeings":"4",
 		onChangeNumberOfBeings:jest.fn(),
+		validate:jest.fn(),
+		value:"4"
 	};
 	
 	render(<NumberOfBeings {...props} />);
@@ -39,6 +43,8 @@ test('numberOfBeings change handler called', async () =>  {
 	const props ={
 		"numberOfBeings":"4",
 		onChangeNumberOfBeings:mockChange,
+		validate:jest.fn(),
+		value:"4"
 	};
 	
 	render(<NumberOfBeings {...props} />);
