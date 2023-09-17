@@ -7,8 +7,10 @@ test('renders SpeciesName element', () => {
 	const props ={
 		"speciesName":"Humans",
 		onChangeSpeciesName:jest.fn(),
+		validate:jest.fn(),
+		value:"Humans"
 	};
-	
+	  
 	render(<SpeciesName {...props} />);
 
 	const sn = screen.getByRole("textbox")
@@ -22,6 +24,8 @@ test('default SpeciesName set correctly', () => {
 	const props ={
 		"speciesName":"Cat Women",
 		onChangeSpeciesName:jest.fn(),
+		validate:jest.fn(),
+		value:"Cat Women"
 	};
 	
 	render(<SpeciesName {...props} />);
@@ -39,6 +43,8 @@ test('SpeciesName change handler called', async () =>  {
 	const props ={
 		"speciesName":"Cat Women",
 		onChangeSpeciesName:mockChange,
+		validate:jest.fn(),
+		value:"Cat Women"
 	};
 	
 	render(<SpeciesName {...props} />);

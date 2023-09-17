@@ -8,6 +8,9 @@ import   Question   from './question'
 import   Reason   from './reason'
 //import   Submit   from './submit'
 
+
+import validateSpeciesName from '../validate/validate_species_name'
+
 const W12MForm = () => {
 	
 	const [speciesName, setSpeciesName] = useState('humans');
@@ -35,7 +38,7 @@ const W12MForm = () => {
 			<W12MHeader />
 			{/* REST OF FORM GOES HERE */
 			
-			<SpeciesName speciesName={speciesName} onChangeSpeciesName={(value) => setSpeciesName(value)} />
+			<SpeciesName speciesName={speciesName} onChangeSpeciesName={(value) => setSpeciesName(value)}  validate={(value) => validateSpeciesName(value)} value={speciesName} />
 			}
 			{
 			<PlanetName planetName={planetName} onChangePlanetName={(value) => setPlanetName(value)} />

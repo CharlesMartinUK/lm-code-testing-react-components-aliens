@@ -8,6 +8,7 @@ const NumberOfBeings: React.FC<NumberOfBeingsProps> = ({ numberOfBeings, onChang
     <>
         <label htmlFor='numberOfBeings'>Number Of Beings</label>
         <input id='numberOfBeings' type='text' value={numberOfBeings} onChange={(e) => onChangeNumberOfBeings(e.target.value)} />
+		<br />
     </> );
 	
 export default NumberOfBeings
