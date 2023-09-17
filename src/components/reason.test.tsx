@@ -55,3 +55,49 @@ test('reason change handler called', async () =>  {
 	expect(mockChange).toHaveBeenCalledTimes(11)
 	
 });
+
+
+test('reason validate handle error correct', () =>  {
+
+	const mockValidate = jest.fn()
+	
+	const props ={
+		"reason":"cats rules",
+		onChangeReason:jest.fn(),
+		validate:mockValidate,
+		value:"cats rules"
+	};
+	
+	mockValidate.mockReturnValue(["ERROR"])
+	
+	const { container } = render(<Reason {...props} />);
+
+	const t = container.getElementsByClassName('error') 
+	
+	//console.log(t)  
+	expect(t).toHaveLength(1);
+
+})
+
+
+test('reason validate handle no error correct', () =>  {
+
+	const mockValidate = jest.fn()
+	
+	const props ={
+		"reason":"cats rules",
+		onChangeReason:jest.fn(),
+		validate:mockValidate,
+		value:"cats rules"
+	};
+	
+	mockValidate.mockReturnValue([])
+	
+	const { container } = render(<Reason {...props} />);
+
+	const t = container.getElementsByClassName('error') 
+	
+	//console.log(t)  
+	expect(t).toHaveLength(0);
+
+})
