@@ -10,7 +10,7 @@ test('validateNumberOfBeings min accectable number', () => {
 
 test('validateNumberOfBeings number to low', () => {
 	
-	expect(validateNumberOfBeings("999990999")).toHaveLength(1)
+	expect(validateNumberOfBeings("999999999")).toHaveLength(1)
 	
 })
 
