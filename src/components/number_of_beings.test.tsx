@@ -55,3 +55,51 @@ test('numberOfBeings change handler called', async () =>  {
 	expect(mockChange).toHaveBeenCalledTimes(2)
 	
 });
+
+
+
+test('NumberOfBeings error return correctly', () => {
+	
+	const mockValidate = jest.fn()
+	
+	const props ={
+		"numberOfBeings":"4",
+		onChangeNumberOfBeings:jest.fn(),
+		validate:mockValidate,
+		value:"4"
+	};
+	
+	mockValidate.mockReturnValue(["NumberOfBeings too low"])
+	
+	render(<NumberOfBeings {...props} />);
+	
+	const t = screen.getByText('NumberOfBeings too low') 
+	
+	//console.log(t)  
+	expect(t).toBeInTheDocument()
+	
+})
+
+
+test('NumberOfBeings no problem validation correctly', () => {
+	
+	const mockValidate = jest.fn()
+	
+	const props ={
+		"numberOfBeings":"4",
+		onChangeNumberOfBeings:jest.fn(),
+		validate:mockValidate,
+		value:"4"
+	};
+	
+	mockValidate.mockReturnValue([])
+	
+	const {container} = render(<NumberOfBeings {...props} />);
+	
+	const t = container.getElementsByClassName('error') 
+	
+	//console.log(t)  
+	expect(t).toHaveLength(0);
+	
+})
+
