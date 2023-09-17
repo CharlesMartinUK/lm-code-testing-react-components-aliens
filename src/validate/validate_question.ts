@@ -9,7 +9,7 @@ const validateQuestion : (answer : string) => string[] = (answer) => {
 	const errors:string[] = []
 	
 		
-	if(answer != "4")
+	if(answer !== "4")
 		errors.push("Invalid answer")
 	
 	
